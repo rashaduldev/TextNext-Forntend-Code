@@ -11,8 +11,8 @@ const [searchQuery, setSearchQuery] = useState("");
   };
 
   return (
-    <div className="text-center items-center h-[60vh] flex justify-center">
-      <div className="relative mx-10">
+    <div className="text-center items-center flex justify-center ">
+      <div className="relative mx-1 p-10">
         <h1 className="text-3xl font-bold my-8 lg:text-5xl">
         Search based on the users name.
         </h1>
@@ -24,15 +24,15 @@ const [searchQuery, setSearchQuery] = useState("");
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <div className="absolute top-[169px] right-[1px] md:top-[133px] lg:top-[145px] lg:right-[93px]">
+       
           <button
             style={{ borderRight: "1px solid black" }}
-            className="text-white bg-red-500 p-2 rounded-r-sm"
+            className="text-white bg-red-500 p-2 rounded-r-sm absolute top-[209px] right-[41px] md:top-[173px] lg:top-[186px] lg:right-[133px]"
             onClick={handleSearch}
           >
             Search
           </button>
-        </div>
+       
       </div>
     </div>
   );
