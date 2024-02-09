@@ -23,12 +23,39 @@ const AllUser = ({ card }) => {
           </div>
           <div className="p-6">
             <div>
-              <p>FirstName:{firstName}</p>
-              <p>LastName:{lastName}</p>
-              <p>Email:{email}</p>
-              <p>Address:{address.city}</p>
-              <p>Address:{address.state}</p>
-              <p>Address:{address.suite}</p>
+              <div className="flex flex-row items-center gap-2 text-xl">
+              <p  className="leading-relaxed text-blue-gray-900 antialiased font-bold"
+              >FirstName:
+              </p>
+              <p>{firstName}</p>
+              </div>
+              <div className="flex flex-row items-center gap-2 text-xl">
+              <p  className="leading-relaxed text-blue-gray-900 antialiased font-bold"
+              >LastName:
+              </p>
+              <p>{lastName}</p>
+              </div>
+              <div className="flex flex-row items-center gap-2 text-xl">
+              <p  className="leading-relaxed text-blue-gray-900 antialiased font-bold"
+              >Email:
+              </p>
+              <p>{email}</p>
+              </div>
+              <p className="leading-relaxed text-blue-gray-900 antialiased font-bold text-xl">Address:--</p>
+             <div className="flex flex-row gap-5">
+             <div className="flex flex-row items-center gap-2">
+              <p
+              >City:
+              </p>
+              <p>{address.city}</p>
+              </div>
+              <div className="flex flex-row items-center gap-2">
+              <p
+              >State:
+              </p>
+              <p>{address.state}</p>
+              </div>
+             </div>
             </div>
             <p
               className="block font-sans text-base  leading-relaxed text-blue-gray-900 antialiased font-bold"
