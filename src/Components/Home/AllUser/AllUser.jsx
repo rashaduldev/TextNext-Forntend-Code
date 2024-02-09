@@ -14,7 +14,7 @@ const AllUser = ({ card }) => {
   } = card;
   return (
     <div>
-      <Link to={`/catagory/${id}`}>
+      <Link to={`/user/${id}`}>
         <div
           className="relative flex  flex-col rounded-xl bg-clip-border text-gray-700 shadow-2xl cursor-pointer"
         >

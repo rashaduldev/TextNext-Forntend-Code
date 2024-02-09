@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Layout from './Components/Layout/Layout';
 import Home from './Components/Home/Home';
+import UserDetails from './Components/Home/UserDetails/UserDetails';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,12 @@ const router = createBrowserRouter([
         path:"/",
         element:<Home></Home>,
         loader:()=>fetch('https://dummyjson.com/users')
-      }
+      },
+      {
+        path:'/user/:id',
+        element: <UserDetails></UserDetails>,
+        loader:()=>fetch('https://dummyjson.com/users')
+    }
     ]
   },
 ]);
