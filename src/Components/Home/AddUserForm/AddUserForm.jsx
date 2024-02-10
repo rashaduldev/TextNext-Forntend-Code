@@ -1,177 +1,156 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const AddUserForm = () => {
-    const [newUser, setNewUser] = useState({
-        avatar: '',
-        firstName: '',
-        lastName: '',
-        email: '',
-        address: {
-          street: '',
-          city: '',
-        },
-        company: {
-          name: '',
-        },
-      });
-console.log(newUser);
-  useEffect(() => {
-    // Load form data from localStorage when the component mounts
-    const storedUser = JSON.parse(localStorage.getItem('userForm')) || {};
-    setNewUser(storedUser);
-  }, []);
+  // State to manage input values
+  const [inputValues, setInputValues] = useState({
+    avatar: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    address: '',
+    companyName: '',
+  });
+  const [localStorageData, setLocalStorageData] = useState([]);
 
-//   const handleInputChange = (e) => {
-//     const { name, value } = e.target;
-//     setNewUser({ ...newUser, [name]: value });
-//   };
+  // Function to handle input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setInputValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Submit');
-    const form = e.target;
-    const avatar = form.avatar.value;
-    console.log(avatar);
-    const inputElement = document.getElementById('inputId');
-if (inputElement) {
-  const inputValue = inputElement.value;
-  console.log(inputValue);
-  // Rest of the code
-} else {
-  console.error("Input element not found");
-}
-    // const firstName = form.firstName.value;
-    // const lastName = form.lastName.value;
-    // const email = form.email.value;
-    // // const street = form.street.value;
-    // const city = form.city.value;
-    // const companyName = form.companyName.value;
+  // Function to handle button click and set data in local storage
+  const handleButtonClick = () => {
+    // Create a new array by spreading the old array and adding the new values
+    const newArray = [...localStorageData, inputValues];
 
-    // const serviceUser = {
-    //   avatar,
-    //   firstName,
-    //   lastName,
-    //   email,
-    //   street,
-    //   city,
-    //   companyName,
-    // };
-    // setNewUser(serviceUser);
-    // console.log(newUser);
-    // // Save the form data to localStorage
-    // localStorage.setItem('userForm', JSON.stringify(serviceUser));
+    // Update the state with the new array
+    setLocalStorageData(newArray);
 
-    // console.log(serviceUser);
-
-    // Clear the form after submission
-    // setNewUser({
-    //   avatar: '',
-    //   firstName: '',
-    //   lastName: '',
-    //   email: '',
-    //   address: {
-    //     street: '',
-    //     suite: '',
-    //     city: '',
-    //   },
-    //   company: {
-    //     name: '',
-    //   },
-    // });
+    // Set the new array in local storage
+    localStorage.setItem('inputValuesArray', JSON.stringify(newArray));
   };
 
   return (
-    <div className='lg:pr-4'>
-      <h1 className='text-2xl font-bold p-2 text-center'>Add User Form</h1>
+    <div className="container mx-auto mt-8 lg:pr-4">
+       <h1 className='text-2xl font-bold p-2 text-center'>Add User Form</h1>
       <form className="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
+        {/* Avatar input field */}
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="avatar">
-            Avatar URL:
+            Avatar
           </label>
           <input
-            className="w-full px-3 py-2 border rounded-md"
             type="text"
+            id="avatar"
             name="avatar"
-            id='avatarr'
-            required
+            value={inputValues.avatar}
+            onChange={handleInputChange}
+            className="w-full p-2 border rounded"
           />
         </div>
 
+        {/* First Name input field */}
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="firstName">
-            First Name:
+            First Name
           </label>
           <input
-            className="w-full px-3 py-2 border rounded-md"
             type="text"
+            id="firstName"
             name="firstName"
-            required
+            value={inputValues.firstName}
+            onChange={handleInputChange}
+            className="w-full p-2 border rounded"
           />
         </div>
 
+        {/* Last Name input field */}
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="lastName">
-            Last Name:
+            Last Name
           </label>
           <input
-            className="w-full px-3 py-2 border rounded-md"
             type="text"
+            id="lastName"
             name="lastName"
-            required
+            value={inputValues.lastName}
+            onChange={handleInputChange}
+            className="w-full p-2 border rounded"
           />
         </div>
 
+        {/* Email input field */}
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-            Email:
+            Email
           </label>
           <input
-            className="w-full px-3 py-2 border rounded-md"
             type="email"
+            id="email"
             name="email"
-            required
+            value={inputValues.email}
+            onChange={handleInputChange}
+            className="w-full p-2 border rounded"
           />
         </div>
 
-        <div className="mb-4 grid grid-cols-2 gap-4">
-          <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="street">
-              Street:
-            </label>
-            <input
-            className="w-full px-3 py-2 border rounded-md"
+        {/* Address input field */}
+        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="address">
+            Address
+          </label>
+       <div className='flex w-full gap-5 mx-auto'>
+       <div className="mb-4 w-[50%]">
+       <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="address">
+           Street
+          </label>
+          <input
             type="text"
-            name="street"
-            required
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="city">
-              City:
-            </label>
-            <input
-              className="w-full px-3 py-2 border rounded-md"
-              type="text"
-              name="city"
-              required
-            />
-          </div>
+            id="address"
+            name="address"
+            value={inputValues.address}
+            onChange={handleInputChange}
+            className="w-full p-2 border rounded"
+          />
+        </div> <div className="mb-4 w-[50%]">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="address">
+            City
+          </label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            value={inputValues.address}
+            onChange={handleInputChange}
+            className="w-full p-2 border rounded"
+          />
         </div>
+       </div>
 
+        {/* Company Name input field */}
         <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="companyName">
-            Company Name:
-        </label>
-        <input
-            className="w-full px-3 py-2 border rounded-md"
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="companyName">
+            Company Name
+          </label>
+          <input
             type="text"
+            id="companyName"
             name="companyName"
-            required
-        />
+            value={inputValues.companyName}
+            onChange={handleInputChange}
+            className="w-full p-2 border rounded"
+          />
         </div>
 
-        <button onClick={handleSubmit} className="bg-blue-500 text-white py-2 px-4 rounded-md w-full" type="submit">
-          Add User
+        {/* Button to set data in local storage */}
+        <button
+          type="button"
+          onClick={handleButtonClick}
+          className="bg-blue-500 text-white  py-2 px-4 rounded-md w-full p-2  hover:bg-blue-600"
+        >
+         Add User
         </button>
       </form>
     </div>
