@@ -75,6 +75,7 @@ const AddUserForm = () => {
            </label>
            <input
              type="text"
+             placeholder="image url"
              name="avatar"
              value={inputValues.avatar}
              className="w-full p-2 border rounded"
@@ -90,6 +91,7 @@ const AddUserForm = () => {
            <input
              type="text"
              name="firstName"
+             placeholder="Type Firstname"
              value={inputValues.firstName}
              className="w-full p-2 border rounded"
              onChange={handleInputChange}
@@ -104,6 +106,7 @@ const AddUserForm = () => {
            <input
              type="text"
              name="lastName"
+             placeholder="Type Lastname"
              value={inputValues.lastName}
              className="w-full p-2 border rounded"
              onChange={handleInputChange}
@@ -117,7 +120,7 @@ const AddUserForm = () => {
            </label>
            <input
              type="email"
-             id="email"
+             placeholder="Type email address"
              name="email"
              value={inputValues.email}
              className="w-full p-2 border rounded"
@@ -137,6 +140,7 @@ const AddUserForm = () => {
            <input
              type="text"
              name="street"
+             placeholder="Type Address Street"
              value={inputValues.street}
              className="w-full p-2 border rounded"
              onChange={handleInputChange}
@@ -148,6 +152,7 @@ const AddUserForm = () => {
            <input
              type="text"
              name="city"
+             placeholder="Type Address City"
              value={inputValues.city}
              className="w-full p-2 border rounded"
              onChange={handleInputChange}
@@ -163,6 +168,7 @@ const AddUserForm = () => {
            <input
              type="text"
              name="companyName"
+             placeholder="Type CompanyName"
              value={inputValues.companyName}
              className="w-full p-2 border rounded"
              onChange={handleInputChange}
