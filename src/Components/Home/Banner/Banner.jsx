@@ -28,8 +28,7 @@ const [searchQuery, setSearchQuery] = useState("");
         />
        
           <button
-            style={{ borderRight: "1px solid black" }}
-            className="text-white bg-red-500 p-2 rounded-r-sm absolute top-[209px] right-[41px] md:top-[173px] lg:top-[185px] lg:right-[133px]"
+            className="text-white bg-slate-900 p-2 rounded-r-sm absolute top-[209px] right-[41px] md:top-[173px] lg:top-[185px] lg:right-[133px]"
             onClick={handleSearch}
           >
             Search

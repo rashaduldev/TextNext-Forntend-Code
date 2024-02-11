@@ -57,11 +57,13 @@ const AllUser = ({ card }) => {
               </div>
              </div>
             </div>
-            <p
-              className="block font-sans text-base  leading-relaxed text-blue-gray-900 antialiased font-bold"
+            <div  className="flex flex-row items-center gap-2"
             >
-              Company Name:{company.name}
-            </p>
+             <p
+              className="block font-sans text-base  leading-relaxed text-blue-gray-900 antialiased font-bold"
+              > Company Name:</p>
+             {company.name}
+            </div>
           </div>
           <div className="p-6 pt-0"></div>
         </div>
