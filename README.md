@@ -50,7 +50,7 @@ This is a simple ReactJS application that fetches user data from the Dummy JSON'
 - Use of `useState` and `useEffect` hooks.
 - React Router for routing.
 - UI framework Tailwind CSS and daisyUI as a Tailwind CSS plugin.
-- Optionally, use TypeScript.
+- Optionally, use TypeScript but I used JavaScript this project.
 
 ## Project Structure
 
@@ -69,4 +69,4 @@ This is a simple ReactJS application that fetches user data from the Dummy JSON'
 3. **UI Design Screens**: The app should have a clean and responsive design.
 4. **Component-based Design**: Ensure proper organization and modularization of components.
 
-[Link to Demo](https://hesitant-history.surge.sh/)
+[Live Link](https://verdant-frogs.surge.sh/)
