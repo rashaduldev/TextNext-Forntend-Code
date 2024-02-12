@@ -1,4 +1,4 @@
-import { toast } from "react-toastify";
+/* eslint-disable react/prop-types */
 import "react-toastify/dist/ReactToastify.css";
 
 // eslint-disable-next-line react/prop-types
