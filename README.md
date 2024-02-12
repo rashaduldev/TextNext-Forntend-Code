@@ -35,7 +35,8 @@ This is a simple ReactJS application that fetches user data from the Dummy JSON'
 - A form on the user list page allows users to add new users with all the required information.
   -Here I used "react-toastify"
   -**[I could have used localhost, or I could have used database, since you didn't give any requirements, so I did it through state. Hope you understand.]
-
+### 6. Extra Design
+- Error Page added.
 ## Design Requirements
 
 - Clean and responsive design.

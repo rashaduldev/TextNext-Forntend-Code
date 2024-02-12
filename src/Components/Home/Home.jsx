@@ -9,10 +9,6 @@ import axios from "axios";
 
 const Home = () => {
   const allCard = useLoaderData();
-  console.log(allCard.users.length);
-  const [filteredItems, setFilteredItems] = useState(allCard.users);
-  const [getItems, setGetItems] = useState([]);
-  const [local, setLocal] = useState([]);
   const [finalData, setFinalData] = useState(allCard.users);
   const [inputValues, setInputValues] = useState({
     avatar: '',
@@ -28,17 +24,6 @@ const Home = () => {
     setFinalData(allCard.users)
   },[allCard]);
 
-  // useEffect(() => {
-  //   setLocal((prevLocal) => {
-  //     const newArray = [...prevLocal, local];
-  //     return newArray;
-  //   });
-  //   const localstorageGetItems = JSON.parse(localStorage.getItem('inputValuesArray'));
-  //   setGetItems(localstorageGetItems || []);
-  // }, [allCard]);
-  
-  
-
   // Callback to update filtered items based on search query
   const handleSearch = (searchQuery) => {
     // console.log("Search Query:", searchQuery);
@@ -51,7 +36,6 @@ const Home = () => {
       const filtered = finalData.filter((item) =>
         item.firstName.toLowerCase().includes(searchQuery.toLowerCase())
       );
-      // console.log("Filtered:", filtered);
       setFinalData(filtered);
     }
   };
@@ -62,8 +46,8 @@ const Home = () => {
       firstName: ' ',
       lastName: ' ',
       email: ' ',
-      street: ' ', // Reset street value
-      city: ' ',   // Reset city value
+      street: ' ',
+      city: ' ',   
       companyName: ' ',
     });
   };
@@ -102,10 +86,6 @@ const Home = () => {
   });
   
   setFinalData([userInputValue,...finalData])
-  
-    // Display success toast
-   
-  
     // Reset the form
     resetForm();
   };

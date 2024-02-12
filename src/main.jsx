@@ -9,11 +9,13 @@ import Layout from './Components/Layout/Layout';
 import Home from './Components/Home/Home';
 import UserDetails from './Components/Home/UserDetails/UserDetails';
 import { ToastContainer } from 'react-toastify';
+import ErrorPage from './Components/ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout></Layout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children:[
       {
         path:"/",
