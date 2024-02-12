@@ -18,8 +18,8 @@ const AllUser = ({ card }) => {
         <div
           className="relative flex  flex-col rounded-xl bg-clip-border text-gray-700 shadow-2xl cursor-pointer"
         >
-          <div className="relative overflow-hidden rounded-t-md bg-white bg-clip-border text-gray-700">
-            <img src={image} className="h-3/6 w-full object-cover" />
+          <div className="relative overflow-hidden rounded-t-md bg-white bg-clip-border text-gray-700 h-[200px]">
+            <img src={image} className="lg:h-[100%] lg:w-[100%] mx-auto" />
           </div>
           <div className="p-6">
             <div>
@@ -35,7 +35,7 @@ const AllUser = ({ card }) => {
               </p>
               <p>{lastName}</p>
               </div>
-              <div className="flex flex-row items-center gap-2 text-xl">
+              <div className="flex flex-row items-center gap-2">
               <p  className="leading-relaxed text-blue-gray-900 antialiased font-bold"
               >Email:
               </p>
@@ -47,22 +47,22 @@ const AllUser = ({ card }) => {
               <p
               >City:
               </p>
-              <p>{address.city}</p>
+              <p>{address?.city}</p>
               </div>
               <div className="flex flex-row items-center gap-2">
               <p
               >State:
               </p>
-              <p>{address.state}</p>
+              <p>{address?.state}</p>
               </div>
              </div>
             </div>
-            <div  className="flex flex-row items-center gap-2"
+            <div  className="items-center gap-2"
             >
              <p
               className="block font-sans text-base  leading-relaxed text-blue-gray-900 antialiased font-bold"
-              > Company Name:</p>
-             {company.name}
+              > Company Name:--</p>
+             {company?.name}
             </div>
           </div>
           <div className="p-6 pt-0"></div>

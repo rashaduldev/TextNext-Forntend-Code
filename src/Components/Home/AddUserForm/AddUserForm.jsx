@@ -1,67 +1,12 @@
-import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const AddUserForm = () => {
-  const [inputValues, setInputValues] = useState({
-    avatar: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    street: '',
-    city: '',
-    companyName: '',
-  });
-  const [localStorageData, setLocalStorageData] = useState([]);
+// eslint-disable-next-line react/prop-types
+const AddUserForm = ({inputValues,setInputValues,handleFormSubmit}) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setInputValues({ ...inputValues, [name]: value });
-  };
-    
-  const resetForm = () => {
-    setInputValues({
-      avatar: ' ',
-      firstName: ' ',
-      lastName: ' ',
-      email: ' ',
-      street: ' ', // Reset street value
-      city: ' ',   // Reset city value
-      companyName: ' ',
-    });
-  };
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const avatar = form.avatar.value;
-    const firstName = form.firstName.value;
-    const lastName = form.lastName.value;
-    const email = form.email.value;
-    const street = form.street.value;
-    const city = form.city.value;
-    const companyName = form.companyName.value;
-  
-    const userInputValue = {
-      avatar,
-      firstName,
-      lastName,
-      email,
-      street,
-      city,
-      companyName,
-    };
-  
-    // Update state and local storage
-    const newArray = [...localStorageData, userInputValue];
-    setLocalStorageData(newArray);
-    localStorage.setItem('inputValuesArray', JSON.stringify(newArray));
-  
-    // Display success toast
-    toast.success("User added successfully");
-  
-    // Reset the form
-    resetForm();
   };
 
     return (
@@ -77,9 +22,10 @@ const AddUserForm = () => {
              type="text"
              placeholder="image url"
              name="avatar"
-             value={inputValues.avatar}
+             value={inputValues?.avatar}
              className="w-full p-2 border rounded"
              onChange={handleInputChange}
+             required
            />
          </div>
  
@@ -95,6 +41,7 @@ const AddUserForm = () => {
              value={inputValues.firstName}
              className="w-full p-2 border rounded"
              onChange={handleInputChange}
+             required
            />
          </div>
  
@@ -110,6 +57,7 @@ const AddUserForm = () => {
              value={inputValues.lastName}
              className="w-full p-2 border rounded"
              onChange={handleInputChange}
+             required
            />
          </div>
  
@@ -125,6 +73,7 @@ const AddUserForm = () => {
              value={inputValues.email}
              className="w-full p-2 border rounded"
              onChange={handleInputChange}
+             required
            />
          </div>
  
@@ -144,6 +93,7 @@ const AddUserForm = () => {
              value={inputValues.street}
              className="w-full p-2 border rounded"
              onChange={handleInputChange}
+             required
            />
          </div> <div className="mb-4 w-[50%]">
            <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -156,6 +106,7 @@ const AddUserForm = () => {
              value={inputValues.city}
              className="w-full p-2 border rounded"
              onChange={handleInputChange}
+             required
            />
          </div>
         </div>
@@ -172,6 +123,7 @@ const AddUserForm = () => {
              value={inputValues.companyName}
              className="w-full p-2 border rounded"
              onChange={handleInputChange}
+             required
            />
          </div>
  
